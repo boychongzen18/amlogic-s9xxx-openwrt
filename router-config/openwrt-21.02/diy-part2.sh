@@ -18,9 +18,6 @@ sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
 echo "DISTRIB_SOURCECODE='openwrt'" >>package/base-files/files/etc/openwrt_release
 
-# Add luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
-
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openwrt-openclash
 pushd package/openwrt-openclash/tools/po2lmo && make && sudo make install 2>/dev/null && popd
